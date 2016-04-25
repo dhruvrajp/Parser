@@ -34,7 +34,7 @@ callParameters: first=expression (','expression)*							 				    	#CallParamLabe
 parameters: first=parameter (',' parameter)*						  #PassParameters
 		  ;																
 
-parameter: 'var'? type IDENT										  #ParameterLabel
+parameter: 'var'? type name=IDENT										  #ParameterLabel
 		 ;
 		 
 function: 'function' (ret=type)? name=IDENT '('parm=parameters? ')'

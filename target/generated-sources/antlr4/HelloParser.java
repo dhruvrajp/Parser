@@ -567,6 +567,7 @@ public class HelloParser extends Parser {
 		}
 	}
 	public static class ParameterLabelContext extends ParameterContext {
+		public Token name;
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
 		}
@@ -599,7 +600,7 @@ public class HelloParser extends Parser {
 			}
 
 			setState(98); type();
-			setState(99); match(IDENT);
+			setState(99); ((ParameterLabelContext)_localctx).name = match(IDENT);
 			}
 		}
 		catch (RecognitionException re) {
