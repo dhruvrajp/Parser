@@ -1,0 +1,47 @@
+Position 1
+load 42
+define x
+Position 2
+load x
+load 32
+ADD
+define y
+FuncParam x
+FuncParam y
+definefunct func1 2 Integer
+load x
+load 1
+ADD
+store x
+end func1
+FuncParam x
+FuncParam y
+load x
+load 1
+ADD
+store x
+load y
+load 65
+LessThan
+IF
+load x
+load 1
+ADD
+store x
+True
+load y
+load 1
+Subtract
+store y
+False
+load x
+load 45
+LessThan
+loopstart 
+load x
+load 1
+ADD
+store x
+gotostart 30
+load x
+invoke func1 1
