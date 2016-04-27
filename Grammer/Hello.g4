@@ -1,19 +1,13 @@
-/**
- * Define a grammar 
- */
 grammar Hello;
 
 program: 'program' IDENT ';'
 		 (declaration|function)*
 		 'begin'
-	     block																
-	     EOF														#ProgramLabel
-		 ;																		
-
+	     block														#ProgramLabel		
+		 ;
 
 block:	 '{'(statement)* '}' 										#BlockLabel 
 		 ;
-		 
 
 statement: assignment														
 		   |declaration														 
@@ -31,7 +25,7 @@ functionCall:funName=IDENT '('callParam=callParameters? ')' ';'            					
 
 callParameters: first=expression (','expression)*							 				    	#CallParamLabel
 			  ;	
-parameters: first=parameter (',' parameter)*						  #PassParameters
+parameters: first=parameter (',' parameter)*							  #PassParameters
 		  ;																
 
 parameter: 'var'? type name=IDENT										  #ParameterLabel
@@ -51,7 +45,7 @@ constant:'const' type IDENT  ':=' expression ';'
 variable:'var' 										
 		  type 
 		  variableName=IDENT
-		  (':=' expression)?';'									#DeclarationLabel
+		  (value=':=' expression)?';'									#DeclarationLabel
 		  ;
 
 
@@ -120,4 +114,4 @@ NOT: '!';
 ASSIGNMENT: ':=';
 LPARE: '(';
 RPARE: ')';
-
+			
